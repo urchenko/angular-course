@@ -1,1 +1,9 @@
-<app-alerts></app-alerts>
+<input
+    type="text"
+    [(ngModel)]="username"
+>
+<button
+    [disabled]="!username"
+    (click)="resetUserName()"
+>Reset</button>
+<p>{{ username }}</p>
