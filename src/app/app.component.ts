@@ -3,12 +3,31 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styles: [`
+    li {
+      list-style: none;
+    }
+    .color-white {
+      color: white;
+    }`
+  ]
 })
 export class AppComponent {
-  username = '';
+  isContentShown = false;
+  content = 'Secret Password = Tuna';
+  clickItems = [];
 
-  resetUserName() {
-    this.username = '';
+  displayDetails() {
+    this.isContentShown = !this.isContentShown;
+    this.clickItems.push(new Date().toISOString());
+  }
+
+  getBackgroundColor(elem) {
+    const index = this.clickItems.findIndex(x => x.valueOf() === elem.valueOf());
+    return index > 4 ? 'blue' : 'none';
+  }
+
+  isColorWhite(elem) {
+    return this.clickItems.findIndex(x => x.valueOf() === elem.valueOf()) > 4;
   }
 }

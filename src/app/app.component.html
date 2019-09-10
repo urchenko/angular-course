@@ -1,9 +1,15 @@
-<input
-    type="text"
-    [(ngModel)]="username"
->
 <button
-    [disabled]="!username"
-    (click)="resetUserName()"
->Reset</button>
-<p>{{ username }}</p>
+    (click)="displayDetails()"
+    style="margin-bottom:12px"
+>Display Details</button>
+<p
+    style="display:inline-block; margin-left:6px"
+    *ngIf="isContentShown"
+>{{ content }}</p>
+<ul>
+    <li
+        *ngFor="let click of clickItems"
+        [ngStyle]="{backgroundColor: getBackgroundColor(click)}"
+        [ngClass]="{'color-white': isColorWhite(click)}"
+    >Click time is {{ click }}</li>
+</ul>
