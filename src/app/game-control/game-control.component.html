@@ -1,5 +1,15 @@
-<div class="game-controller">
-    <p>Lets start the game!</p>
-    <button class="btn btn-success">Start</button>
-    <button class="btn btn-danger">Sop</button>
+<div class="game-controller container">
+    <h2 class="col-md-4 col-md-offset-4">Lets start the game!</h2>
+    <div
+        class="btn-group col-md-4 col-md-offset-4" role="group">
+        <button
+            class="btn btn-success btn-lg"
+            (click)="onGameStart()"
+            [disabled]="isStartDisabled()"
+        >Start</button>
+        <button
+        class="btn btn-danger btn-lg"
+        (click)="onGameStop()"
+        >Sop</button>
+    </div>
 </div>
